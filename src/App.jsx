@@ -8,8 +8,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeView />} />
-        <Route path="/editor" element={<EditorView />} />
-        <Route path="/editor/v2" element={<EditorVieww />} />
+        {/* <Route path="/editor" element={<EditorView />} /> */}
+        <Route path="/editor" element={<EditorVieww />} />
       </Routes>
     </BrowserRouter>
   )
