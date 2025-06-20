@@ -10,6 +10,10 @@ import {
     X
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf';
+import workerUrl from '../pdf-worker';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
 
 export const EditorVieww = () => {
     const [role, setRole] = useState('');
@@ -17,6 +21,7 @@ export const EditorVieww = () => {
     const [cv, setCv] = useState(null)
     const [result, setResult] = useState("")
     const [loading, setLoading] = useState(false)
+
 
     const handleDrag = (e) => {
         e.preventDefault();
@@ -40,13 +45,9 @@ export const EditorVieww = () => {
             }
         }
     };
-
-    const handleFileChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            setCv(e.target.files[0]);
-        }
+    const removeFile = () => {
+        setCv(null);
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
@@ -64,14 +65,57 @@ export const EditorVieww = () => {
             setResult(res.data.result)
         } catch (err) {
             console.error(err)
-            setResult("Ocurrió un error al procesar el CV.")
+            setResult("Upload failed. Please try again.")
         } finally {
             setLoading(false)
         }
     }
 
-    const removeFile = () => {
-        setCv(null);
+    const handleFileUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = async () => {
+            try {
+                const typedarray = new Uint8Array(reader.result);
+
+                const pdf = await pdfjsLib.getDocument({ data: typedarray }).promise;
+
+                let fullText = "";
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const content = await page.getTextContent();
+
+                    // Evitar problemas si content.items es undefined
+                    const items = content?.items || [];
+                    const text = items.map(item => item.str).join(" ");
+
+                    fullText += text + "\n";
+                }
+
+                // Limpiar el texto extraído
+                const cleanText = fullText.trim();
+
+                if (cleanText.length === 0) {
+                    alert("No se pudo extraer texto del PDF. Por favor, intenta con otro archivo.");
+                    setCv("");
+                    return;
+                }
+
+                // Actualizar estados con datos válidos
+                setCv(cleanText);
+
+            } catch (error) {
+                console.error("Error leyendo el PDF:", error);
+                alert("Error al procesar el PDF. Intenta con otro archivo.");
+                setCv("");
+            }
+        };
+
+        reader.readAsArrayBuffer(file);
     };
 
     return (
@@ -110,22 +154,8 @@ export const EditorVieww = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-8">
-                    <textarea
-                        placeholder="Pegá tu currículum acá..."
-                        className="w-full p-2 border rounded h-40"
-                        value={cv}
-                        onChange={(e) => setCv(e.target.value)}
-                        required
-                    />
-                    <button
-                        type="submit"
-                        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                        disabled={loading}
-                    >
-                        {loading ? "Analizando..." : "Mejorar CV"}
-                    </button>
                     {/* File Upload Section */}
-                    {/* <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+                    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
                         <div className="flex items-center mb-6">
                             <Upload className="h-6 w-6 text-blue-600 mr-3" />
                             <h2 className="text-xl font-semibold text-gray-900">Sube tu CV</h2>
@@ -157,7 +187,7 @@ export const EditorVieww = () => {
                                     <input
                                         type="file"
                                         accept=".pdf"
-                                        onChange={handleFileChange}
+                                        onChange={handleFileUpload}
                                         className="hidden"
                                     />
                                 </label>
@@ -186,7 +216,7 @@ export const EditorVieww = () => {
                                 </div>
                             </div>
                         )}
-                    </div> */}
+                    </div>
 
                     {/* Job Position Section */}
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
