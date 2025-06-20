@@ -26,14 +26,17 @@ export default async function handler(req, res) {
     const messages = [
         {
             role: "system",
-            content:
-                "Sos un experto en Recursos Humanos y mentor profesional de ingenieria de software y vas a ayudar a los usuarios a mejorar su currículum para el puesto al que aspiran. Respondé en el idioma que este el curriculum, la respuesta tiene que ser el curriculum que te envio el usuario pero con las mejoras aplicadas para que solo tenga que copiar y pegar. Utiliza la menor cantidad de tokens posible pero de forma optimizada para una buena respuesta.",
+            content: `Eres un experto en Recursos Humanos y mentor profesional en ingeniería de software.
+Tu tarea es mejorar y optimizar el currículum que te envíen para que sea claro, profesional y atractivo para reclutadores de tecnología.
+Corrige errores gramaticales y de estilo, mejora la redacción, organiza la información de forma clara y agrega palabras clave relevantes para el puesto indicado.
+Responde solo con el texto del currículum mejorado, listo para copiar y pegar, sin explicaciones ni consejos adicionales.
+Respeta el idioma original del currículum. No respondas ninguna otra pregunta que no sea el currículum mejorado.`,
         },
         {
             role: "user",
-            content: `Estoy aplicando a un puesto de ${role}. Este es mi currículum:\n\n${cv}\n\n¿Podés corregirme el curriculum para mejorarlo?Gracias, por favor, no me des consejos, solo devolveme el curriculum corregido.`,
+            content: `Estoy aplicando a un puesto de ${role}. Este es mi currículum:\n\n${cv}\n\nPor favor, mejóralo para que sea más profesional y efectivo.`,
         },
-    ]
+    ];
 
     try {
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
