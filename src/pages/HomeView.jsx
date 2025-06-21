@@ -12,20 +12,16 @@ import {
     Shield
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo';
 
 function App() {
     return (
         <div className="min-h-screen bg-white">
             {/* Navigation */}
-            <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+            <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 backdrop-blur-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
-                        <div className="flex items-center space-x-2">
-                            <Link to={'/'} className="bg-blue-600 p-2 rounded-lg">
-                                <FileText className="h-6 w-6 text-white" />
-                            </Link>
-                            <span className="text-xl font-bold text-gray-900">CV Boost</span>
-                        </div>
+                        <Logo />
                         <div className="hidden md:flex items-center space-x-8">
                             <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
                             <a href="#testimonials" className="text-gray-600 hover:text-gray-900 transition-colors">Reviews</a>
@@ -54,10 +50,10 @@ function App() {
                             Get hired 3x faster with professionally optimized resumes. Our AI analyzes job descriptions and tailors your CV to beat ATS systems and impress recruiters.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <button className="group bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center">
+                            <Link to={'/editor'} className="group bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center">
                                 Boost My CV Now
                                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                            </button>
+                            </Link>
                             <button className="bg-white text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold border-2 border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md">
                                 Watch Demo
                             </button>
@@ -124,9 +120,6 @@ function App() {
                             <p className="text-gray-600 mb-6">
                                 Beat applicant tracking systems with keyword optimization and formatting that gets past automated filters.
                             </p>
-                            <div className="flex items-center text-blue-600 font-medium">
-                                Learn more <ChevronRight className="ml-1 h-4 w-4" />
-                            </div>
                         </div>
                         <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
                             <div className="bg-green-100 p-3 rounded-xl w-fit mb-6">
@@ -136,9 +129,6 @@ function App() {
                             <p className="text-gray-600 mb-6">
                                 Get AI-powered recommendations for skills, experience descriptions, and achievements that recruiters love.
                             </p>
-                            <div className="flex items-center text-green-600 font-medium">
-                                Learn more <ChevronRight className="ml-1 h-4 w-4" />
-                            </div>
                         </div>
                         <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
                             <div className="bg-orange-100 p-3 rounded-xl w-fit mb-6">
@@ -148,9 +138,6 @@ function App() {
                             <p className="text-gray-600 mb-6">
                                 Choose from 50+ industry-specific templates designed by HR experts and approved by top companies.
                             </p>
-                            <div className="flex items-center text-orange-600 font-medium">
-                                Learn more <ChevronRight className="ml-1 h-4 w-4" />
-                            </div>
                         </div>
                     </div>
                 </div>

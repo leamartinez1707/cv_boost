@@ -1,13 +1,13 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 import HomeView from "./pages/HomeView"
-import EditorVieww from "./pages/EditorVieww"
+import EditorView from "./pages/EditorView"
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeView />} />
-        <Route path="/editor" element={<EditorVieww />} />
+        <Route path="/editor" element={<EditorView />} />
       </Routes>
     </BrowserRouter>
   )

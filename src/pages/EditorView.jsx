@@ -8,6 +8,7 @@ import {
     ArrowRight,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo';
 
 export const EditorVieww = () => {
     const [role, setRole] = useState('');
@@ -49,12 +50,7 @@ export const EditorVieww = () => {
                             <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
                             Back
                         </Link>
-                        <div className="flex items-center space-x-2">
-                            <div className="bg-blue-600 p-2 rounded-lg">
-                                <FileText className="h-5 w-5 text-white" />
-                            </div>
-                            <span className="text-lg font-semibold text-gray-900">CV Boost Editor</span>
-                        </div>
+                        <Logo />
                         <div></div>
                     </div>
                 </div>
