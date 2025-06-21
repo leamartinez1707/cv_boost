@@ -1,17 +1,36 @@
-<<<<<<< HEAD
-# React + Vite
+# CV Boost
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CV Boost is a web application designed to help you improve your curriculum vitae (CV) using AI-powered suggestions and enhancements.
 
-Currently, two official plugins are available:
+## Features
+- Upload your CV in plain text format
+- Receive instant feedback and suggestions to improve your CV
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> **Note:** This is the first version of CV Boost and currently only supports CVs in plain text format. Future versions will include support for additional formats and more advanced features.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# cv_boost
-Upgrade your CV with AI.
->>>>>>> 2d5eb45e5808ff60675736d41a6cb772cdc2c4c6
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/cvboost.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Roadmap
+- Support for PDF CV uploads
+- Advanced AI suggestions and scoring
+- Export improved CVs in PDF
+- User accounts and history
+
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License.
