@@ -12,9 +12,9 @@ const Result = ({ jobTitle, result, improvements }) => {
             <div className="bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl p-8 text-white mb-8">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold mb-2">¡CV Optimizado Exitosamente!</h1>
+                        <h1 className="text-3xl font-bold mb-2">CV Successfully Optimized!</h1>
                         <p className="text-green-100 text-lg">
-                            Tu CV para <span className="font-semibold">{jobTitle}</span> ha sido mejorado significativamente
+                            Your CV for <span className="font-semibold">{jobTitle}</span> has been significantly improved
                         </p>
                     </div>
                     <div className="hidden md:block">
@@ -29,34 +29,34 @@ const Result = ({ jobTitle, result, improvements }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                     <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-semibold text-gray-900">Puntuación General</h3>
+                        <h3 className="font-semibold text-gray-900">Overall Score</h3>
                         <TrendingUp className="h-5 w-5 text-green-600" />
                     </div>
-                    <ScoreCircle score={improvements.score} label="de 100" />
+                    <ScoreCircle score={improvements.score} label="out of 100" />
                     <p className="text-sm text-gray-600 mt-2 text-center">
-                        Excelente puntuación para tu industria
+                        Excellent score for your industry
                     </p>
                 </div>
 
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                     <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-semibold text-gray-900">Compatibilidad ATS</h3>
+                        <h3 className="font-semibold text-gray-900">ATS Compatibility</h3>
                         <Target className="h-5 w-5 text-blue-600" />
                     </div>
                     <ScoreCircle score={improvements.atsCompatibility} label="Compatible" />
                     <p className="text-sm text-gray-600 mt-2 text-center">
-                        Pasará filtros automáticos
+                        Will pass automatic filters
                     </p>
                 </div>
 
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                     <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-semibold text-gray-900">Palabras Clave</h3>
+                        <h3 className="font-semibold text-gray-900">Keywords</h3>
                         <Eye className="h-5 w-5 text-orange-600" />
                     </div>
                     <div className="text-center">
                         <div className="text-3xl font-bold text-gray-900 mb-2">{improvements.keywordMatches}</div>
-                        <p className="text-sm text-gray-600">Coincidencias encontradas</p>
+                        <p className="text-sm text-gray-600">Matches found</p>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ const Result = ({ jobTitle, result, improvements }) => {
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
                         <CheckCircle className="h-6 w-6 text-green-600 mr-3" />
-                        Mejoras Realizadas
+                        Improvements Made
                     </h3>
                     <div className="space-y-4">
                         {improvements.improvementsDone.map((improvement, index) => (
@@ -84,7 +84,7 @@ const Result = ({ jobTitle, result, improvements }) => {
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
                         <Zap className="h-6 w-6 text-blue-600 mr-3" />
-                        Sugerencias Adicionales
+                        Additional Suggestions
                     </h3>
                     <div className="space-y-6">
                         {improvements.suggestions.map((suggestion, index) => (
@@ -106,7 +106,7 @@ const Result = ({ jobTitle, result, improvements }) => {
                 </div>
             </div>
             <div className="mt-8 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-                <h2 className="text-xl font-semibold text-gray-800 mb-4">CV Optimizado</h2>
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">Optimized CV</h2>
                 <div className="prose max-w-none text-gray-700 whitespace-pre-wrap font-sans leading-relaxed">
                     {result}
                 </div>
