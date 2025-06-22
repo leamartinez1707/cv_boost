@@ -35,36 +35,36 @@ export const EditorVieww = () => {
             setImprovements({
                 score: 87,
                 improvementsDone: [
-                    "Agregadas 12 palabras clave relevantes para " + role,
-                    "Mejorada la estructura de experiencia laboral",
-                    "Optimizado el formato para sistemas ATS",
-                    "Añadidas métricas cuantificables en logros",
-                    "Mejorada la sección de habilidades técnicas"
+                    "Added 12 relevant keywords for " + role,
+                    "Improved work experience structure",
+                    "Optimized formatting for ATS systems",
+                    "Added quantifiable metrics to achievements",
+                    "Enhanced technical skills section"
                 ],
                 keywordMatches: 18,
                 suggestions: [
                     {
-                        category: "Habilidades Técnicas",
+                        category: "Technical Skills",
                         items: [
-                            "Agregar certificaciones relevantes",
-                            "Incluir herramientas específicas del sector",
-                            "Destacar tecnologías emergentes"
+                            "Add relevant certifications",
+                            "Include industry-specific tools",
+                            "Highlight emerging technologies"
                         ]
                     },
                     {
-                        category: "Experiencia",
+                        category: "Experience",
                         items: [
-                            "Cuantificar más logros con números",
-                            "Usar verbos de acción más impactantes",
-                            "Agregar contexto sobre el tamaño de proyectos"
+                            "Quantify more achievements with numbers",
+                            "Use more impactful action verbs",
+                            "Add context about project sizes"
                         ]
                     },
                     {
-                        category: "Formato",
+                        category: "Formatting",
                         items: [
-                            "Optimizar espaciado para mejor legibilidad",
-                            "Usar bullets points consistentes",
-                            "Mejorar jerarquía visual de secciones"
+                            "Optimize spacing for better readability",
+                            "Use consistent bullet points",
+                            "Improve visual hierarchy of sections"
                         ]
                     }
                 ],
