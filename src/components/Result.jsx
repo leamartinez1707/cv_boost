@@ -2,6 +2,10 @@ import { Award, TrendingUp, Eye, Target, CheckCircle, Zap, ArrowRight } from "lu
 import ScoreCircle from "./ScoreCircle"
 
 const Result = ({ jobTitle, result, improvements }) => {
+
+    console.log(improvements)
+    console.log(result)
+    console.log(jobTitle)
     return (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {/* Success Banner */}

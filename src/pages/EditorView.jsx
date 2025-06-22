@@ -32,46 +32,44 @@ export const EditorVieww = () => {
             );
             setResult(res.data.result);
             // Simular procesamiento con resultado realista
-            setTimeout(() => {
-                setImprovements({
-                    score: 87,
-                    improvementsDone: [
-                        "Agregadas 12 palabras clave relevantes para " + role,
-                        "Mejorada la estructura de experiencia laboral",
-                        "Optimizado el formato para sistemas ATS",
-                        "Añadidas métricas cuantificables en logros",
-                        "Mejorada la sección de habilidades técnicas"
-                    ],
-                    keywordMatches: 18,
-                    suggestions: [
-                        {
-                            category: "Habilidades Técnicas",
-                            items: [
-                                "Agregar certificaciones relevantes",
-                                "Incluir herramientas específicas del sector",
-                                "Destacar tecnologías emergentes"
-                            ]
-                        },
-                        {
-                            category: "Experiencia",
-                            items: [
-                                "Cuantificar más logros con números",
-                                "Usar verbos de acción más impactantes",
-                                "Agregar contexto sobre el tamaño de proyectos"
-                            ]
-                        },
-                        {
-                            category: "Formato",
-                            items: [
-                                "Optimizar espaciado para mejor legibilidad",
-                                "Usar bullets points consistentes",
-                                "Mejorar jerarquía visual de secciones"
-                            ]
-                        }
-                    ],
-                    atsCompatibility: 94
-                });
-            }, 3000);
+            setImprovements({
+                score: 87,
+                improvementsDone: [
+                    "Agregadas 12 palabras clave relevantes para " + role,
+                    "Mejorada la estructura de experiencia laboral",
+                    "Optimizado el formato para sistemas ATS",
+                    "Añadidas métricas cuantificables en logros",
+                    "Mejorada la sección de habilidades técnicas"
+                ],
+                keywordMatches: 18,
+                suggestions: [
+                    {
+                        category: "Habilidades Técnicas",
+                        items: [
+                            "Agregar certificaciones relevantes",
+                            "Incluir herramientas específicas del sector",
+                            "Destacar tecnologías emergentes"
+                        ]
+                    },
+                    {
+                        category: "Experiencia",
+                        items: [
+                            "Cuantificar más logros con números",
+                            "Usar verbos de acción más impactantes",
+                            "Agregar contexto sobre el tamaño de proyectos"
+                        ]
+                    },
+                    {
+                        category: "Formato",
+                        items: [
+                            "Optimizar espaciado para mejor legibilidad",
+                            "Usar bullets points consistentes",
+                            "Mejorar jerarquía visual de secciones"
+                        ]
+                    }
+                ],
+                atsCompatibility: 94
+            });
         } catch (err) {
             console.error(err);
             setResult("Upload failed. Please try again.");
