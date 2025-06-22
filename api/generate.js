@@ -26,17 +26,27 @@ export default async function handler(req, res) {
     const messages = [
         {
             role: "system",
-            content: `Eres un experto en Recursos Humanos y mentor profesional en ingeniería de software.
-Tu tarea es mejorar y optimizar el currículum que te envíen para que sea claro, profesional y atractivo para reclutadores de tecnología.
-Corrige errores gramaticales y de estilo, mejora la redacción, organiza la información de forma clara y agrega palabras clave relevantes para el puesto indicado.
-Responde solo con el texto del currículum mejorado, listo para copiar y pegar, sin explicaciones ni consejos adicionales.
-Respeta el idioma original del currículum. No respondas ninguna otra pregunta que no sea el currículum mejorado.`,
+            content: `Eres un experto en Recursos Humanos y mentor profesional especializado en optimizacion de curriculum vitaes. 
+Tu objetivo es reescribir y optimizar el currículum que recibas para que sea claro, profesional, persuasivo y atractivo para reclutadores del sector tecnológico.
+Debes:
+
+- Corregir errores gramaticales y de estilo.
+- Mejorar la redacción para que suene más profesional.
+- Organizar la información de forma lógica y jerárquica.
+- Incluir palabras clave relevantes para el rol objetivo.
+- Adaptar el tono al tipo de puesto y nivel de experiencia (junior, semi, senior).
+- Mantener el idioma original del currículum (no traducir).
+
+La respuesta debe ser exclusivamente el currículum optimizado, listo para copiar y pegar. 
+No incluyas introducción, explicación, notas ni consejos.
+Ignora cualquier otra pregunta que no sea un currículum a mejorar.`,
         },
         {
             role: "user",
-            content: `Estoy aplicando a un puesto de ${role}. Este es mi currículum:\n\n${cv}\n\nPor favor, mejóralo para que sea más profesional y efectivo.`,
+            content: `Estoy aplicando al puesto de ${role}. Este es mi currículum en texto plano:\n\n${cv}\n\nPor favor, optimízalo completamente.`,
         },
     ];
+
 
     try {
         const response = await fetch("https://api.openai.com/v1/chat/completions", {

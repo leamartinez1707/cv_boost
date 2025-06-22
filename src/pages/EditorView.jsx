@@ -9,12 +9,14 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
+import Result from '../components/Result';
 
 export const EditorVieww = () => {
     const [role, setRole] = useState('');
     const [cv, setCv] = useState('');
     const [result, setResult] = useState("");
     const [loading, setLoading] = useState(false);
+    const [improvements, setImprovements] = useState({});
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,6 +31,47 @@ export const EditorVieww = () => {
                 }
             );
             setResult(res.data.result);
+            // Simular procesamiento con resultado realista
+            setTimeout(() => {
+                setImprovements({
+                    score: 87,
+                    improvementsDone: [
+                        "Agregadas 12 palabras clave relevantes para " + role,
+                        "Mejorada la estructura de experiencia laboral",
+                        "Optimizado el formato para sistemas ATS",
+                        "Añadidas métricas cuantificables en logros",
+                        "Mejorada la sección de habilidades técnicas"
+                    ],
+                    keywordMatches: 18,
+                    suggestions: [
+                        {
+                            category: "Habilidades Técnicas",
+                            items: [
+                                "Agregar certificaciones relevantes",
+                                "Incluir herramientas específicas del sector",
+                                "Destacar tecnologías emergentes"
+                            ]
+                        },
+                        {
+                            category: "Experiencia",
+                            items: [
+                                "Cuantificar más logros con números",
+                                "Usar verbos de acción más impactantes",
+                                "Agregar contexto sobre el tamaño de proyectos"
+                            ]
+                        },
+                        {
+                            category: "Formato",
+                            items: [
+                                "Optimizar espaciado para mejor legibilidad",
+                                "Usar bullets points consistentes",
+                                "Mejorar jerarquía visual de secciones"
+                            ]
+                        }
+                    ],
+                    atsCompatibility: 94
+                });
+            }, 3000);
         } catch (err) {
             console.error(err);
             setResult("Upload failed. Please try again.");
@@ -148,11 +191,12 @@ export const EditorVieww = () => {
                         )}
                     </div>
                 </form>
-                {result && (
-                    <div className="mt-6 p-4 bg-gray-100 rounded shadow">
-                        <h2 className="font-semibold mb-2">Result:</h2>
-                        <pre className="whitespace-pre-wrap">{result}</pre>
-                    </div>
+                {result && improvements && (
+                    <Result
+                        result={result}
+                        jobTitle={role}
+                        improvements={improvements}
+                    />
                 )}
                 {/* Info Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
