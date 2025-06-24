@@ -2,10 +2,18 @@ import { Award, TrendingUp, Eye, Target, CheckCircle, Zap, ArrowRight } from "lu
 import ScoreCircle from "./ScoreCircle"
 
 const Result = ({ jobTitle, result, improvements }) => {
-
-    console.log(improvements)
-    console.log(result)
-    console.log(jobTitle)
+    if (!result || !jobTitle || !improvements.score) {
+        return (
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <h2 className="text-xl font-semibold text-gray-800 mb-4">No Results Available</h2>
+                    <p className="text-gray-600">Please ensure you have submitted a CV for optimization.</p>
+                    <p className="text-gray-600">{result ?? result}</p>
+                    <p className="text-gray-600">If the problem persists, contact <a className="text-blue-500 hover:underline" href="mailto:leandromartinez.dev@gmail.com">leandromartinez.dev@gmail.com</a></p>
+                </div>
+            </div>
+        )
+    }
     return (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {/* Success Banner */}
